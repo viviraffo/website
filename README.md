@@ -1,9 +1,9 @@
-# Mein Website Portfolio
+# Mein Website 
 
 Meine persönliche Website, gehostet über GitHub Pages auf meiner eigenen Domain.
 
 ## 🌐 Live Website
-[https://deine-domain.com](https://deine-domain.com)
+[https://raffo-bueroservice.ch](https://raffo-bueroservice.ch)
 
 ## 🛠️ Verwendete Technologien
 * HTML5
@@ -11,5 +11,5 @@ Meine persönliche Website, gehostet über GitHub Pages auf meiner eigenen Domai
 * JavaScript
 
 ## 🚀 Lokal ausführen
-1. Repository klonen: `git clone https://github.com/dein-username/dein-repo.git`
+1. Repository klonen: `git clone https://github.com/viviraffo/website.git`
 2. `index.html` im Browser öffnen.
