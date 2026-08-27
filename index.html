@@ -259,6 +259,23 @@
     <textarea name="Nachricht" placeholder="Womit darf ich Sie entlasten?" rows="5"></textarea>
   </div>
   <button type="submit">Kostenloses Erstgespräch anfragen</button>
+               <script>
+  const form = document.querySelector('form.raffo-form');
+
+  if (form) {
+    form.addEventListener('submit', function() {
+      setTimeout(() => {
+        form.reset();
+      }, 100);
+    });
+
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+        form.reset();
+      }
+    });
+  }
+</script>
 </form>
               <div class="contact-item">
                 <span class="contact-icon" aria-hidden="true">📞</span>
