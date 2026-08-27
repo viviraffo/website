@@ -401,6 +401,85 @@ header#about-section {
 }
 
 /* ==========================================
+   FORMULAR STYLING (BREIT & GROSS)
+   ========================================== */
+
+/* Vergrößert die maximale Breite der Kontakt-Box auf deiner Seite */
+section.bg-pink-highlight .contact-wrapper {
+  max-width: 850px; /* Vorher 650px - gibt dem Formular mehr Raum */
+  width: 100%;
+}
+
+.raffo-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Macht ALLE Input-Typen und Textareas extrem gut lesbar und breit */
+.raffo-form input[type="text"],
+.raffo-form input[type="email"],
+.raffo-form input[type="tel"],
+.raffo-form textarea,
+.raffo-form input {
+  display: block;
+  width: 100% !important; /* Erzwingt volle Breite */
+  padding: 16px 20px;     /* Mehr Innenabstand = höhere, griffigere Felder */
+  border: 2px solid rgba(230, 0, 126, 0.2);
+  border-radius: 10px;
+  font-size: 16px;         /* Minimale Größe gegen automatisches Safari-Zoomen */
+  font-family: inherit;
+  color: #1a1a1a;
+  background-color: #ffffff;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.raffo-form ::placeholder {
+  color: #777777;
+}
+
+.raffo-form input:focus,
+.raffo-form textarea:focus {
+  border-color: #e6007e;
+  box-shadow: 0 0 0 4px rgba(230, 0, 126, 0.15);
+}
+
+.raffo-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Großer, auffälliger Button */
+.raffo-form button[type="submit"] {
+  display: block;
+  width: 100% !important;
+  padding: 18px 24px;
+  background-color: #e6007e;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(230, 0, 126, 0.35);
+  transition: all 0.2s ease;
+}
+
+.raffo-form button[type="submit"]:hover {
+  background-color: #b30062;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
    FOOTER
    ========================================== */
 
