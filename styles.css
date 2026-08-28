@@ -607,3 +607,28 @@ footer {
     justify-content: space-between;
   }
 }
+
+/* ==========================================
+   BUTTON STYLING (Pink für Unterseiten & CTA)
+   ========================================== */
+a.button,
+.btn-pink {
+  display: inline-block;
+  background-color: #e6007e;
+  color: #ffffff !important;
+  padding: 16px 32px;
+  border-radius: 10px;
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(230, 0, 126, 0.35);
+  cursor: pointer;
+}
+
+a.button:hover,
+.btn-pink:hover {
+  background-color: #b30062;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(230, 0, 126, 0.45);
+}
