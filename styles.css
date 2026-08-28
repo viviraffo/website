@@ -274,6 +274,31 @@ header#about-section {
   font-weight: bold;
 }
 
+/* Styling für verlinkte Dienstleistungskarten */
+.service-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Dezenter Effekt beim Drüberfahren (Hover) */
+.service-card-link:hover .service-card {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.more-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #e6007e; 
+}
+
 /* ==========================================
    PRAXISERFAHRUNG (#knowhow-section)
    ========================================== */
