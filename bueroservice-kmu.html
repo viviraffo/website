@@ -15,27 +15,34 @@
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav id="navbar">
     <div class="nav-brand">
       <a href="index.html" style="text-decoration: none; color: inherit;">Raffo Büroservice</a>
     </div>
     
-    <button class="menu-toggle" id="mobile-menu" aria-label="Menü öffnen">
-      ☰
-    </button>
+    <div class="mobile-actions">
+      <a href="tel:+41763939703" class="mobile-call-btn" aria-label="Anrufen">📞 Jetzt anrufen</a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Menü öffnen">
+        ☰
+      </button>
+    </div>
 
     <div class="nav-links" id="nav-links">
       <a href="index.html#about-section">Über mich</a>
-      <a href="index.html#service-section">Meine Dienstleistungen</a>
+      <a href="index.html#service-section">Dienstleistungen</a>
       <a href="index.html#knowhow-section">Praxiserfahrung</a>
+      <a href="index.html#testimonials-section">Kundenstimmen</a>
+      <a href="index.html#faq-section">FAQ</a>
       <a href="#contact-section">Kontakt</a>
     </div>
   </nav>
 
-  <main style="padding-top: 70px;">
+  <!-- HAUPTINHALT -->
+  <main style="padding-top: 100px;">
     <section class="bg-white">
       <div class="container">
-        <h2>Büro & Administration für KMU & Handwerker</h2>
+        <h1 class="section-title">Büro & Administration für KMU & Handwerker</h1>
         <p class="section-desc">Zuverlässiges Backoffice auf Stundenbasis – effizient, exakt und entlastend.</p>
 
         <div class="description" style="margin-bottom: 40px;">
@@ -70,9 +77,11 @@
         <div class="service-info-banner">
           <p>💡 <strong>Warum sich ein externes Backoffice für Sie lohnt:</strong> Eine feste Anstellung lohnt sich für viele kleine Betriebe finanziell nicht. Bei mir bezahlen Sie transparent genau die Stunden, die effektiv gearbeitet wurden (CHF 90.– / Std.). Es entstehen keine Raumkosten, keine Infrastrukturkosten und keine Fixkosten.</p>
         </div>
+
       </div>
     </section>
 
+    <!-- KONTAKT SEKTION -->
     <section id="contact-section" class="bg-pink-highlight">
       <div class="container">
         <h2 class="section-title">Sichern Sie sich jetzt mehr Freiraum für Ihr Geschäft</h2>
@@ -82,45 +91,53 @@
           <div class="contact-info">
             <h3>Ich freue mich auf Ihre Nachricht!</h3>
             <p>Haben Sie Fragen zu meinen Dienstleistungen oder möchten Sie direkt Unterstützung buchen? Rufen Sie mich an oder schreiben Sie mir.</p>
+            
+            <form action="https://formspree.io/f/xljerond" method="POST" class="raffo-form">
+              <div class="form-group">
+                <input type="text" name="Name" placeholder="Ihr Name *" required>
+              </div>
+              <div class="form-group">
+                <input type="text" name="Firma" placeholder="Firma">
+              </div>
+              <div class="form-group">
+                <input type="email" name="E-Mail" placeholder="E-Mail *" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" name="Telefon" placeholder="Telefon">
+              </div>
+              <div class="form-group">
+                <textarea name="Nachricht" placeholder="Womit darf ich Sie entlasten?" rows="5"></textarea>
+              </div>
+              <button type="submit">Kostenloses Erstgespräch anfragen</button>
+              <script>
+                const form = document.querySelector('form.raffo-form');
+                if (form) {
+                  form.addEventListener('submit', function() {
+                    setTimeout(() => { form.reset(); }, 100);
+                  });
+                  window.addEventListener('pageshow', function(event) {
+                    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                      form.reset();
+                    }
+                  });
+                }
+              </script>
+            </form>
+
             <div class="contact-details">
-
-              <form action="https://formspree.io/f/xljerond" method="POST" class="raffo-form">
-                <div class="form-group">
-                  <input type="text" name="Name" placeholder="Ihr Name *" required>
-                </div>
-                <div class="form-group">
-                  <input type="text" name="Firma" placeholder="Firma">
-                </div>
-                <div class="form-group">
-                  <input type="email" name="E-Mail" placeholder="E-Mail *" required>
-                </div>
-                <div class="form-group">
-                  <input type="tel" name="Telefon" placeholder="Telefon">
-                </div>
-                <div class="form-group">
-                  <textarea name="Nachricht" placeholder="Womit darf ich Sie entlasten?" rows="5"></textarea>
-                </div>
-                <button type="submit">Kostenloses Erstgespräch anfragen</button>
-                <script>
-                  const form = document.querySelector('form.raffo-form');
-                  if (form) {
-                    form.addEventListener('submit', function() {
-                      setTimeout(() => { form.reset(); }, 100);
-                    });
-                    window.addEventListener('pageshow', function(event) {
-                      if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-                        form.reset();
-                      }
-                    });
-                  }
-                </script>
-              </form>
-
               <div class="contact-item">
                 <span class="contact-icon" aria-hidden="true">📞</span>
                 <div>
                   <strong>Telefon:</strong>
                   <p><a href="tel:+41763939703">+41 76 393 97 03</a></p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="contact-icon whatsapp-btn" aria-hidden="true">💬</span>
+                <div>
+                  <strong>WhatsApp:</strong>
+                  <p><a href="https://wa.me/41763939703" target="_blank">WhatsApp schreiben</a></p>
                 </div>
               </div>
 
@@ -131,7 +148,6 @@
                   <p><a href="mailto:info@raffo-bueroservice.ch">info@raffo-bueroservice.ch</a></p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -139,6 +155,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container footer-content">
       <p>Copyright 2026 &copy; Raffo Büroservice – Alle Rechte vorbehalten.</p>
