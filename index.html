@@ -293,41 +293,64 @@
             <h3>Ich freue mich auf Ihre Nachricht!</h3>
             <p>Haben Sie Fragen zu meinen Dienstleistungen oder möchten Sie direkt Unterstützung buchen? Rufen Sie mich an oder schreiben Sie mir.</p>
 
-            <form action="https://formspree.io/f/xljerond" method="POST" class="raffo-form">
-              <div class="form-group">
-                <input type="text" name="Name" placeholder="Ihr Name *" required>
-              </div>
-              <div class="form-group">
-                <input type="text" name="Firma" placeholder="Firma">
-              </div>
-              <div class="form-group">
-                <input type="email" name="E-Mail" placeholder="E-Mail *" required>
-              </div>
-              <div class="form-group">
-                <input type="tel" name="Telefon" placeholder="Telefon">
-              </div>
-              <div class="form-group">
-                <textarea name="Nachricht" placeholder="Womit darf ich Sie entlasten?" rows="5"></textarea>
-              </div>
-              <button type="submit">Kostenloses Erstgespräch anfragen</button>
-              
-              <script>
-                const form = document.querySelector('form.raffo-form');
-                if (form) {
-                  form.addEventListener('submit', function() {
-                    setTimeout(() => {
-                      form.reset();
-                    }, 100);
-                  });
+           
+<form id="raffo-contact-form" action="https://formspree.io/f/xljerond" method="POST" class="raffo-form">
+  <div class="form-group">
+    <input type="text" name="Name" placeholder="Ihr Name *" required>
+  </div>
+  <div class="form-group">
+    <input type="text" name="Firma" placeholder="Firma">
+  </div>
+  <div class="form-group">
+    <input type="email" name="E-Mail" placeholder="E-Mail *" required>
+  </div>
+  <div class="form-group">
+    <input type="tel" name="Telefon" placeholder="Telefon">
+  </div>
+  <div class="form-group">
+    <textarea name="Nachricht" placeholder="Womit darf ich Sie entlasten?" rows="5"></textarea>
+  </div>
+  <button type="submit" id="submit-btn">Kostenloses Erstgespräch anfragen</button>
+</form>
 
-                  window.addEventListener('pageshow', function(event) {
-                    if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-                      form.reset();
-                    }
-                  });
-                }
-              </script>
-            </form>
+<script>
+  const raffoForm = document.getElementById('raffo-contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  if (raffoForm) {
+    raffoForm.addEventListener('submit', async function(event) {
+      event.preventDefault(); // Verhindert die Weiterleitung zu Formspree
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Wird gesendet...';
+
+      const formData = new FormData(raffoForm);
+
+      try {
+        const response = await fetch(raffoForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Erfolgreich gesendet -> Auf eigene Danke-Seite weiterleiten
+          window.location.href = 'https://www.raffo-bueroservice.ch/danke.html';
+        } else {
+          alert('Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Kostenloses Erstgespräch anfragen';
+        }
+      } catch (error) {
+        alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Kostenloses Erstgespräch anfragen';
+      }
+    });
+  }
+</script>
 
             <div class="contact-details">
               <div class="contact-item">
